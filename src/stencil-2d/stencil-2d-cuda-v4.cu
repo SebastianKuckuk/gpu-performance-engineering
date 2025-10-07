@@ -41,8 +41,8 @@ inline int realMain(int argc, char *argv[]) {
 
     // warm-up
     for (size_t i = 0; i < nItWarmUp; ++i) {
-        stencil2d<<<numBlocks, blockSize>>>(d_u, d_uNew, nx, ny);
-        std::swap(d_u, d_uNew);
+        stencil2d<<<numBlocks, blockSize>>>(u, uNew, nx, ny);
+        std::swap(u, uNew);
     }
     checkCudaError(cudaDeviceSynchronize(), true);
 
@@ -50,8 +50,8 @@ inline int realMain(int argc, char *argv[]) {
     auto start = std::chrono::steady_clock::now();
 
     for (size_t i = 0; i < nIt; ++i) {
-        stencil2d<<<numBlocks, blockSize>>>(d_u, d_uNew, nx, ny);
-        std::swap(d_u, d_uNew);
+        stencil2d<<<numBlocks, blockSize>>>(u, uNew, nx, ny);
+        std::swap(u, uNew);
     }
     checkCudaError(cudaDeviceSynchronize(), true);
 

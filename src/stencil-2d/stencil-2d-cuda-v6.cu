@@ -4,9 +4,10 @@
 
 
 template <typename tpe>
-__global__ void stencil2d(const tpe *const __restrict__ u, tpe *__restrict__ uNew, size_t nx, size_t ny) {
-    const size_t i0 = blockIdx.x * blockDim.x + threadIdx.x;
-    const size_t i1 = blockIdx.y * blockDim.y + threadIdx.y;
+__global__ void stencil2d(const tpe *const __restrict__ u, tpe *__restrict__ uNew, size_t it, size_t nx, size_t ny) {
+    const auto forward = (0 == it % 2);
+    const size_t i0 = (forward ? blockIdx.x : (gridDim.x - 1 - blockIdx.x)) * blockDim.x + threadIdx.x;
+    const size_t i1 = (forward ? blockIdx.y : (gridDim.y - 1 - blockIdx.y)) * blockDim.y + threadIdx.y;
 
     if (i0 >= 1 && i0 < nx - 1 && i1 >= 1 && i1 < ny - 1) {
         uNew[i0 + i1 * nx] = 0.25 * u[i0 + i1 * nx + 1] + 0.25 * u[i0 + i1 * nx - 1] + 0.25 * u[i0 + nx * (i1 + 1)] + 0.25 * u[i0 + nx * (i1 - 1)];
@@ -41,7 +42,7 @@ inline int realMain(int argc, char *argv[]) {
 
     // warm-up
     for (size_t i = 0; i < nItWarmUp; ++i) {
-        stencil2d<<<numBlocks, blockSize>>>(d_u, d_uNew, nx, ny);
+        stencil2d<<<numBlocks, blockSize>>>(d_u, d_uNew, i, nx, ny);
         std::swap(d_u, d_uNew);
     }
     checkCudaError(cudaDeviceSynchronize(), true);
@@ -50,7 +51,7 @@ inline int realMain(int argc, char *argv[]) {
     auto start = std::chrono::steady_clock::now();
 
     for (size_t i = 0; i < nIt; ++i) {
-        stencil2d<<<numBlocks, blockSize>>>(d_u, d_uNew, nx, ny);
+        stencil2d<<<numBlocks, blockSize>>>(d_u, d_uNew, i, nx, ny);
         std::swap(d_u, d_uNew);
     }
     checkCudaError(cudaDeviceSynchronize(), true);
