@@ -3,9 +3,6 @@
 #include <nvtx3/nvtx3.hpp>
 
 
-#pragma omp requires unified_shared_memory
-
-
 template <typename tpe>
 inline size_t conjugateGradient(const tpe *const __restrict__ rhs, tpe *__restrict__ u, tpe *__restrict__ res,
                                 tpe *__restrict__ p, tpe *__restrict__ ap,
