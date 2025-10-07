@@ -20,12 +20,17 @@ All course material is collected and available at [https://github.com/SebastianK
 It follows this general agenda:
 1. [Introduction](./material/introduction.ipynb)
 1. [Test Case: 2D Stencil](./material/stencil-test-case.ipynb)
-1. [GPU Architecture](./material/gpu-architecture.ipynb)
-1. [Performance Models](./material/performance-models.ipynb)
-1. [Micro Benchmarks](./material/micro-benchmarks.ipynb)
 1. [Application Level Profiling](./material/application-level-profiling.ipynb)
 1. [Kernel Level Profiling](./material/kernel-level-profiling.ipynb)
-1. [Challenge: Conjugate Gradient](./material/conjugate-gradient.ipynb)
+
+interwoven with labs on
+* [GPU Architecture](./material/gpu-architecture.ipynb)
+* [Performance Models](./material/performance-models.ipynb)
+* [Micro Benchmarks](./material/micro-benchmarks.ipynb)
+* [Additional Nsight Compute Options](./material/nsight-compute-options.ipynb)
+
+and closing with a
+* [Challenge: Conjugate Gradient](./material/conjugate-gradient.ipynb)
 
 ## Start
 
