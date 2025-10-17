@@ -35,7 +35,7 @@ inline int realMain(int argc, char *argv[]) {
 
     nvtxRangePushA("enter data");
 #pragma omp target enter data map(to : u [0:nx * ny], uNew [0:nx * ny])
-    nvtxRangePop();
+    nvtxRangePop(); // enter data
 
     // warm-up
     for (size_t i = 0; i < nItWarmUp; ++i) {
@@ -52,7 +52,7 @@ inline int realMain(int argc, char *argv[]) {
         stencil2d(u, uNew, nx, ny);
         std::swap(u, uNew);
     }
-    nvtxRangePop();
+    nvtxRangePop(); // timed iterations
 
     auto end = std::chrono::steady_clock::now();
 
@@ -60,7 +60,7 @@ inline int realMain(int argc, char *argv[]) {
 
     nvtxRangePushA("exit data");
 #pragma omp target exit data map(from : u [0:nx * ny], uNew [0:nx * ny])
-    nvtxRangePop();
+    nvtxRangePop(); // exit data
 
     // check solution
     checkSolutionStencil2D(u, uNew, nx, ny, nIt + nItWarmUp);
