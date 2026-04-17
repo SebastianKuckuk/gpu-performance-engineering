@@ -10,10 +10,10 @@ inline void initStreamStrided(tpe *__restrict__ dest, tpe *__restrict__ src, siz
 }
 
 template <typename tpe>
-inline void checkSolutionStreamStrided(const tpe *const __restrict__ dest, const tpe *const __restrict__ src, size_t nx, size_t nIt, size_t strideRead, size_t strideWrite) {
+inline void checkSolutionStreamStrided(const tpe *const __restrict__ data, size_t nx, size_t nIt, size_t strideRead, size_t strideWrite) {
     tpe total = 0;
     for (size_t i0 = 0; i0 < nx * std::max(strideRead, strideWrite); ++i0) {
-        total += src[i0];
+        total += data[i0];
     }
 
     if (total <= 0 || total > nx * nIt)

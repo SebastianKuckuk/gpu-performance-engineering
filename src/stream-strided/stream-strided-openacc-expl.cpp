@@ -51,7 +51,7 @@ inline int realMain(int argc, char *argv[]) {
 #pragma acc exit data copyout(src [0:nx * std::max(strideRead, strideWrite)])
 
     // check solution
-    checkSolutionStreamStrided(dest, src, nx, nIt + nItWarmUp, strideRead, strideWrite);
+    checkSolutionStreamStrided(src, nx, nIt + nItWarmUp, strideRead, strideWrite);
 
     delete[] dest;
     delete[] src;

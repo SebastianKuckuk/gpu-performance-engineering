@@ -53,7 +53,7 @@ inline int realMain(int argc, char *argv[]) {
 #pragma omp target exit data map(from : u [0:nx * ny], uNew [0:nx * ny])
 
     // check solution
-    checkSolutionStencil2D(u, uNew, nx, ny, nIt + nItWarmUp);
+    checkSolutionStencil2D(u, nx, ny);
 
     delete[] u;
     delete[] uNew;

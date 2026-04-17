@@ -63,7 +63,7 @@ inline int realMain(int argc, char *argv[]) {
     checkCudaError(cudaMemcpy(uNew, d_uNew, sizeof(tpe) * nx * ny, cudaMemcpyDeviceToHost));
 
     // check solution
-    checkSolutionStencil2D(u, uNew, nx, ny, nIt + nItWarmUp);
+    checkSolutionStencil2D(u, nx, ny);
 
     checkCudaError(cudaFree(d_u));
     checkCudaError(cudaFree(d_uNew));

@@ -63,7 +63,7 @@ inline int realMain(int argc, char *argv[]) {
     nvtxRangePop(); // exit data
 
     // check solution
-    checkSolutionStencil2D(u, uNew, nx, ny, nIt + nItWarmUp);
+    checkSolutionStencil2D(u, nx, ny);
 
     delete[] u;
     delete[] uNew;

@@ -17,7 +17,7 @@ inline void initStencil2D(tpe *__restrict__ u, tpe *__restrict__ uNew, size_t nx
 }
 
 template <typename tpe>
-inline void checkSolutionStencil2D(const tpe *const __restrict__ u, const tpe *const __restrict__ uNew, size_t nx, size_t ny, size_t nIt) {
+inline void checkSolutionStencil2D(const tpe *const __restrict__ u, size_t nx, size_t ny) {
     tpe res = 0;
     for (size_t i1 = 1; i1 < ny - 1; ++i1) {
         for (size_t i0 = 1; i0 < nx - 1; ++i0) {

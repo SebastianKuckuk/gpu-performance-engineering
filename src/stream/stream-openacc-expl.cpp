@@ -49,7 +49,7 @@ inline int realMain(int argc, char *argv[]) {
 #pragma acc exit data copyout(src [0:nx])
 
     // check solution
-    checkSolutionStream(dest, src, nx, nIt + nItWarmUp);
+    checkSolutionStream(src, nx, nIt + nItWarmUp);
 
     delete[] dest;
     delete[] src;

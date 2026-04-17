@@ -61,7 +61,7 @@ inline int realMain(int argc, char *argv[]) {
     checkCudaError(cudaMemcpy(src, d_src, sizeof(tpe) * nx * std::max(strideRead, strideWrite), cudaMemcpyDeviceToHost));
 
     // check solution
-    checkSolutionStreamStrided(dest, src, nx, nIt + nItWarmUp, strideRead, strideWrite);
+    checkSolutionStreamStrided(src, nx, nIt + nItWarmUp, strideRead, strideWrite);
 
     checkCudaError(cudaFree(d_dest));
     checkCudaError(cudaFree(d_src));

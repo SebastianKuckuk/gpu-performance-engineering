@@ -59,7 +59,7 @@ inline int realMain(int argc, char *argv[]) {
     checkCudaError(cudaMemcpy(src, d_src, sizeof(tpe) * nx, cudaMemcpyDeviceToHost));
 
     // check solution
-    checkSolutionStream(dest, src, nx, nIt + nItWarmUp);
+    checkSolutionStream(src, nx, nIt + nItWarmUp);
 
     checkCudaError(cudaFree(d_dest));
     checkCudaError(cudaFree(d_src));

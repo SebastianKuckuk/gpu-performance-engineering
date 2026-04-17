@@ -10,10 +10,10 @@ inline void initStream(tpe *__restrict__ dest, tpe *__restrict__ src, size_t nx)
 }
 
 template <typename tpe>
-inline void checkSolutionStream(const tpe *const __restrict__ dest, const tpe *const __restrict__ src, size_t nx, size_t nIt) {
+inline void checkSolutionStream(const tpe *const __restrict__ data, size_t nx, size_t nIt) {
     for (size_t i0 = 0; i0 < nx; ++i0) {
-        if ((tpe)(i0 + nIt) != src[i0]) {
-            std::cerr << "Stream check failed for element " << i0 << " (expected " << i0 + nIt << " but got " << src[i0] << ")" << std::endl;
+        if ((tpe)(i0 + nIt) != data[i0]) {
+            std::cerr << "Stream check failed for element " << i0 << " (expected " << i0 + nIt << " but got " << data[i0] << ")" << std::endl;
             return;
         }
     }

@@ -55,7 +55,7 @@ inline int realMain(int argc, char *argv[]) {
                                  : src [0:nx * std::max(strideRead, strideWrite)])
 
     // check solution
-    checkSolutionStreamStrided(dest, src, nx, nIt + nItWarmUp, strideRead, strideWrite);
+    checkSolutionStreamStrided(src, nx, nIt + nItWarmUp, strideRead, strideWrite);
 
     delete[] dest;
     delete[] src;
