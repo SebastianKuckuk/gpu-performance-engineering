@@ -18,18 +18,18 @@ A copy of all profiles obtained is also included in this repository.
 All course material is collected and available at [https://github.com/SebastianKuckuk/gpu-performance-engineering](https://github.com/SebastianKuckuk/gpu-performance-engineering) (this repository).
 
 It follows this general agenda:
-1. [Introduction](./material/introduction.ipynb)
-1. [Test Case: 2D Stencil](./material/stencil-test-case.ipynb)
-1. [Performance Models](./material/performance-models.ipynb)
-1. [Application Level Profiling](./material/application-level-profiling.ipynb)
-1. [Kernel Level Profiling](./material/kernel-level-profiling.ipynb)
-1. [GPU Architecture](./material/gpu-architecture.ipynb)
-1. [Occupancy Optimization](./material/occupancy-optimization.ipynb)
-1. [Micro Benchmarks](./material/micro-benchmarks.ipynb)
-1. [Parallelism Optimization](./material/parallelism-optimization.ipynb)
-1. [Additional Nsight Compute Options](./material/nsight-compute-options.ipynb)
-1. [Nsight Compute GUI](./material/nsight-compute-gui.ipynb)
-1. [Challenge: Conjugate Gradient](./material/conjugate-gradient.ipynb)
+1. [Introduction](./material/00-introduction.ipynb)
+1. [Use Case: 2D Stencil](./material/01-stencil-use-case.ipynb)
+1. [Performance Models](./material/02-performance-models.ipynb)
+1. [Application Level Profiling](./material/03-application-level-profiling.ipynb)
+1. [Kernel Level Profiling](./material/04-kernel-level-profiling.ipynb)
+1. [GPU Architecture](./material/05-gpu-architecture.ipynb)
+1. [Occupancy Optimization](./material/06-occupancy-optimization.ipynb)
+1. [Micro Benchmarks](./material/07-micro-benchmarks.ipynb)
+1. [Parallelism Optimization](./material/08-parallelism-optimization.ipynb)
+1. [Additional Nsight Compute Options](./material/09-nsight-compute-options.ipynb)
+1. [Nsight Compute GUI](./material/10-nsight-compute-gui.ipynb)
+1. [Challenge: Conjugate Gradient](./material/11-conjugate-gradient.ipynb)
 
 ## Start
 
@@ -38,4 +38,4 @@ To start, clone the repository on your target system (and on your notebook/ work
 git clone https://github.com/SebastianKuckuk/gpu-performance-engineering.git
 ```
 
-Then head over to the [Introduction](./material/introduction.ipynb) notebook.
+Then head over to the [Introduction](./material/00-introduction.ipynb) notebook.
