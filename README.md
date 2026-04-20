@@ -11,11 +11,11 @@ The generated report files can then be visualized and analyzed locally.
 This requires a local installation of Nsight Compute and Nsight Systems.
 Both tools can either be installed separately ([nsight compute](https://developer.nvidia.com/tools-overview/nsight-compute/get-started), [nsight systems](https://developer.nvidia.com/nsight-systems/get-started), might require a free NVIDIA developer account), or bundled in the [CUDA toolkit](https://developer.nvidia.com/cuda-downloads) or [Nvidia HPC SDK](https://developer.nvidia.com/hpc-sdk-downloads).
 
-A copy of all profiles obtained is also included in this repository.
+A copy of all profiles obtained is available at [https://github.com/SebastianKuckuk/gpu-performance-engineering-profiles](https://github.com/SebastianKuckuk/gpu-performance-engineering-profiles).
 
 ## Course Content
 
-All course material is collected and available at [https://github.com/SebastianKuckuk/gpu-performance-engineering](https://github.com/SebastianKuckuk/gpu-performance-engineering) (this repository).
+All course material is collected and available at [https://github.com/SebastianKuckuk/gpu-performance-engineering](https://github.com/SebastianKuckuk/gpu-performance-engineering) (this repository) and [https://github.com/SebastianKuckuk/gpu-performance-engineering-profiles](https://github.com/SebastianKuckuk/gpu-performance-engineering-profiles).
 
 It follows this general agenda:
 1. [Introduction](./material/00-introduction.ipynb)
@@ -33,9 +33,14 @@ It follows this general agenda:
 
 ## Start
 
-To start, clone the repository on your target system (and on your notebook/ workstation to visualize the profiles locally)
+To start, clone the repository on your target system
 ```bash
 git clone https://github.com/SebastianKuckuk/gpu-performance-engineering.git
+```
+
+To get a copy of the profiles (on your notebook/ workstation to visualize them locally) use
+```bash
+git clone https://github.com/SebastianKuckuk/gpu-performance-engineering-profiles.git
 ```
 
 Then head over to the [Introduction](./material/00-introduction.ipynb) notebook.
