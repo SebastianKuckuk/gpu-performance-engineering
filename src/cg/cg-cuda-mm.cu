@@ -166,8 +166,9 @@ inline int realMain(int argc, char *argv[]) {
     // init
     initConjugateGradient(u, rhs, nx, ny);
 
-    checkCudaError(cudaMemPrefetchAsync(u, sizeof(tpe) * nx * ny, 0));
-    checkCudaError(cudaMemPrefetchAsync(rhs, sizeof(tpe) * nx * ny, 0));
+    cudaMemLocation deviceLocation = { .type = cudaMemLocationTypeDevice, .id = 0 };
+    checkCudaError(cudaMemPrefetchAsync(u, sizeof(tpe) * nx * ny, deviceLocation, 0));
+    checkCudaError(cudaMemPrefetchAsync(rhs, sizeof(tpe) * nx * ny, deviceLocation, 0));
 
     tpe *res;
     checkCudaError(cudaMallocManaged(&res, sizeof(tpe) * nx * ny));
@@ -193,8 +194,9 @@ inline int realMain(int argc, char *argv[]) {
 
     printStats<tpe>(end - start, nIt, nx * ny, tpeName, 8 * sizeof(tpe), 15);
 
-    checkCudaError(cudaMemPrefetchAsync(u, sizeof(tpe) * nx * ny, cudaCpuDeviceId));
-    checkCudaError(cudaMemPrefetchAsync(rhs, sizeof(tpe) * nx * ny, cudaCpuDeviceId));
+    cudaMemLocation hostLocation = { .type = cudaMemLocationTypeHost };
+    checkCudaError(cudaMemPrefetchAsync(u, sizeof(tpe) * nx * ny, hostLocation, 0));
+    checkCudaError(cudaMemPrefetchAsync(rhs, sizeof(tpe) * nx * ny, hostLocation, 0));
 
     // check solution
     checkSolutionConjugateGradient(u, rhs, nx, ny);
