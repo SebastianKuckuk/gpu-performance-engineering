@@ -42,5 +42,7 @@ To get a copy of the profiles (on your notebook/ workstation to visualize them l
 ```bash
 git clone https://github.com/SebastianKuckuk/gpu-performance-engineering-profiles.git
 ```
+NOTE: Cloning the profiles repository requires [Git LFS](https://git-lfs.com/).
+Downloading individual files via the web interface is possible regardless.
 
 Then head over to the [Introduction](./material/00-introduction.ipynb) notebook.
